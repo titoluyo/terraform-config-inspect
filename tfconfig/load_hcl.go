@@ -28,7 +28,7 @@ func loadModule(fs FS, dir string) (*Module, Diagnostics) {
 			diags = append(diags, &hcl.Diagnostic{
 				Severity: hcl.DiagError,
 				Summary:  "Failed to read file",
-				Detail:   fmt.Sprintf("The configuration file %q could not be read.", filename),
+				Detail:   fmt.Sprintf("The configuration file %q could not be read. (tlm)", filename),
 			})
 			continue
 		}
