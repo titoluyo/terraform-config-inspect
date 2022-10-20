@@ -20,6 +20,7 @@ func loadModule(fs FS, dir string) (*Module, Diagnostics) {
 	parser := hclparse.NewParser()
 
 	for _, filename := range primaryPaths {
+		fmt.Sprintf("-- (TLM) trying to load %s", filename)
 		var file *hcl.File
 		var fileDiags hcl.Diagnostics
 
