@@ -27,7 +27,7 @@ func loadModule(fs FS, dir string) (*Module, Diagnostics) {
 
 		b, err := fs.ReadFile(filename)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Println(err.Error())
 			diags = append(diags, &hcl.Diagnostic{
 				Severity: hcl.DiagError,
 				Summary:  "Failed to read file",
