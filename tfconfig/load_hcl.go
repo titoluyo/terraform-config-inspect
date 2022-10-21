@@ -20,13 +20,14 @@ func loadModule(fs FS, dir string) (*Module, Diagnostics) {
 	parser := hclparse.NewParser()
 
 	for _, filename := range primaryPaths {
-		fmt.Printf("-- (TLM) trying to load %s", filename)
+		fmt.Printf("* (TLM) trying to load %s", filename)
 		fmt.Println()
 		var file *hcl.File
 		var fileDiags hcl.Diagnostics
 
 		b, err := fs.ReadFile(filename)
 		if err != nil {
+			fmt.Print("*** (TLM) ERROR: ")
 			fmt.Println(err.Error())
 			diags = append(diags, &hcl.Diagnostic{
 				Severity: hcl.DiagError,
